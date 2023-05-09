@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.springframework.org/tags/form">
+<head>
+  <meta charset="UTF-8">
+  <title>Update User</title>
+</head>
+<body>
+<form th:action="@{/updateUser}" th:object="${user}" th:method="POST">
+  <input type="hidden" th:field="*{id}"/>
+  <label for="name">Name</label>
+  <br/>
+  <input type="text" th:field="*{name}" id="name"/>
+
+  <br/>
+  <label for="lastName">Lastname</label>
+  <br/>
+  <input type="text"  th:field="*{lastName}" id = "lastName"/>
+
+  <br/>
+  <label for="age">Age</label>
+  <br/>
+  <input type="text" th:field="*{age}" id="age"/>
+
+  <br/>
+  <button type="submit" value="Ok">Submit</button>
+</form>
+</body>
+</html>

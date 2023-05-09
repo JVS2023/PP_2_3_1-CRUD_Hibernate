@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<head>
+    <meta charset="UTF-8">
+    <title>all-users</title>
+</head>
+<body>
+<h2>Users</h2>
+<br>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Operations</th>
+    </tr>
+    <c:forEach items="${listUser}" var="user">
+        <tr th:each="user : ${listUser}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.age}"></td>
+            <td>
+                <input type="button" value="Edit" th:data-url="@{/editUser/{id}(id=${user.id})}"
+                       onclick="window.location.href=this.getAttribute('data-url');"/>
+                <form th:action="@{/deleteUser/{id}(id=${user.id})}" th:method="DELETE">
+                    <button type='submit' name='your_name' value='your_value' class='btn-link'>Delete</button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+<br>
+<input type="button" value="Add" onclick="window.location.href='createNewUser'"/>
+</body>
+</html>
