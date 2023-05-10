@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/") //домаш. страница
+    @GetMapping(value = "/") //домашняя страница
     public String home(Model mav) {
         mav.addAttribute("listUser", userService.getListUsers());
         return "all-users";
